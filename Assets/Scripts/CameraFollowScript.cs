@@ -3,17 +3,18 @@ using System.Collections;
 
 public class CameraFollowScript : MonoBehaviour
 {
-    public GameObject target;
+    GameObject target;
     Vector3 position;
 
     void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player");
         position = transform.position;
     }
 
     void Update()
     {
-        position.y = target.transform.position.y;
+        position.y = target.transform.position.y + 0.5f;
         transform.position = position;
     }
 }

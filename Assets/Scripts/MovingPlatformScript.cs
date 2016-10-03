@@ -3,11 +3,12 @@ using System.Collections;
 
 public class MovingPlatformScript : MonoBehaviour {
 
+    //Variables that specify how the platforms move
     public bool vertical;
     public bool goingUpOrRight;
     public float speed;
 
-    float platformTimer;
+    private float platformTimer;
 
 	void Start ()
     {
@@ -41,7 +42,7 @@ public class MovingPlatformScript : MonoBehaviour {
                 transform.position += Vector3.left * speed * Time.deltaTime;
             }
         }
-
+        //Changing direction
         if (platformTimer >= 3.0f)
         {
             goingUpOrRight = !goingUpOrRight;

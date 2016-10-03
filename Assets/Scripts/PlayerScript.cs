@@ -7,8 +7,8 @@ public class PlayerScript : MonoBehaviour {
     public float speed;
     public float force;
 
-    bool isMoving;
-    bool isJumping;
+    private bool isMoving;
+    private bool isJumping;
 
     Rigidbody rb;
     Animator animator;
@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour {
         animator.SetBool("moving", isMoving);
         animator.SetBool("jumping", isJumping);
 
+        //Moving the player
         if (allowMoving)
         {
             if (Input.GetKey(KeyCode.RightArrow))
@@ -61,6 +62,7 @@ public class PlayerScript : MonoBehaviour {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
+
     void OnCollisionEnter(Collision other)
     {
         isJumping = false;

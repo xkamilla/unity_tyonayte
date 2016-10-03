@@ -3,9 +3,9 @@ using System.Collections;
 
 public class CameraScript : MonoBehaviour {
 
-    public Camera camera1;
-    public Camera camera2;
-    public Camera camera3;
+    public Camera camera1; //Main camera
+    public Camera camera2; //Bigger view -camera
+    public Camera camera3; //Winner camera
 
     void Start ()
     {

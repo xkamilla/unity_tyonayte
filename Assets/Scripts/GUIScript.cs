@@ -3,9 +3,9 @@ using System.Collections;
 
 public class GUIScript : MonoBehaviour {
 
-    float guideTimer;
-    bool showGuide;
-    string guideText;
+    private float guideTimer;
+    private bool showGuide;
+    private string guideText;
 
     void Start()
     {

@@ -3,12 +3,16 @@ using System.Collections;
 
 public class CameraScript : MonoBehaviour {
 
-    public Camera camera1; //Main camera
-    public Camera camera2; //Bigger view -camera
-    public Camera camera3; //Winner camera
+    Camera camera1; //Main camera
+    Camera camera2; //Bigger view -camera
+    Camera camera3; //Winner camera
 
     void Start ()
     {
+        camera1 = GameObject.Find("Main Camera").GetComponent<Camera>();
+        camera2 = GameObject.Find("Help Camera").GetComponent<Camera>();
+        camera3 = GameObject.Find("Win Camera").GetComponent<Camera>();
+
         camera1.enabled = true;
         camera2.enabled = false;
         camera3.enabled = false;

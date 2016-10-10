@@ -3,25 +3,25 @@ using System.Collections;
 
 public class WinStarScript : MonoBehaviour {
 
-    public GameObject mainLight;
-    public GameObject spotLight;
+    GameObject mainLight;
+    GameObject spotLight;
 
     GameObject playerObject;
     private CameraScript cs;
     private PlayerScript ps;
 
     public GameObject confettiPrefab;
-    Vector3 confettiPosition;
 
     void Start()
     {
+        mainLight = GameObject.Find("Main Light");
+        spotLight = GameObject.Find("Spotlight");
+
         spotLight.SetActive(false);
 
-        playerObject = GameObject.Find("SkeletonPlayer");
+        playerObject = GameObject.FindWithTag("Player");
         cs = playerObject.GetComponent<CameraScript>();
         ps = playerObject.GetComponent<PlayerScript>();
-
-        confettiPosition = new Vector3(0, 16, 0);
     }
 
     void OnTriggerEnter()
@@ -31,6 +31,6 @@ public class WinStarScript : MonoBehaviour {
         ps.allowMoving = false;
 
         cs.Winning();
-        Instantiate(confettiPrefab, confettiPosition, Quaternion.identity);
+        Instantiate(confettiPrefab, new Vector3(playerObject.transform.position.x, playerObject.transform.position.y + 2, playerObject.transform.position.z), Quaternion.identity);
     }
 }
